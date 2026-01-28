@@ -2,6 +2,10 @@
 
 A simple SwiftUI toast SDK for iOS. Show pill-style notifications at the top of the screen with success, error, or warning styling.
 
+| Success | Warning | Error |
+|--------|---------|-------|
+| <img src="https://github.com/user-attachments/assets/8f478db6-1981-4a73-bdef-b7d32cadcdf7" width="280"/> | <img src="https://github.com/user-attachments/assets/90960414-a2fd-4da0-9233-b7637b824fb8" width="280"/> | <img src="https://github.com/user-attachments/assets/e3eda48c-95b4-4dc6-b009-90ecd1389ac1" width="280"/> |
+
 ## Requirements
 
 - iOS 15+
