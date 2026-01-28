@@ -9,8 +9,7 @@ import SwiftUI
 public struct ToastPresenter: ViewModifier {
     public init() {}
     public func body(content: Content) -> some View {
-        content
-            .modifier(InternalToastPresenter())
+        ToastPresenterHost { content }
     }
 }
 
