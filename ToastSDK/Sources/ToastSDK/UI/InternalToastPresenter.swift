@@ -7,11 +7,16 @@
 
 import SwiftUI
 
-struct InternalToastPresenter: ViewModifier {
+struct ToastPresenterHost<Content: View>: View {
 
-    @ObservedObject private var manager = ToastManager()
+    @StateObject private var manager = ToastManager()
+    let content: Content
 
-    func body(content: Content) -> some View {
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+
+    var body: some View {
         content
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .environment(\.toast, ToastAction { message, type in

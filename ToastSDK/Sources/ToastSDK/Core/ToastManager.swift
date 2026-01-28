@@ -24,7 +24,8 @@ final class ToastManager: ObservableObject {
             withAnimation(.easeInOut(duration: 0.3)) {
                 toast = nil
             }
-            dismissTask = Task { @MainActor in
+            dismissTask = Task { @MainActor [weak self] in
+                guard let self else { return }
                 try? await Task.sleep(nanoseconds: 300_000_000)
                 guard !Task.isCancelled else { return }
                 withAnimation(.easeInOut(duration: 0.3)) {
@@ -38,7 +39,8 @@ final class ToastManager: ObservableObject {
             withAnimation(.easeInOut(duration: 0.3)) {
                 toast = ToastData(message: messageToShow, type: typeToShow)
             }
-            dismissTask = Task { @MainActor in
+            dismissTask = Task { @MainActor [weak self] in
+                guard let self else { return }
                 try? await Task.sleep(nanoseconds: 3_000_000_000)
                 guard !Task.isCancelled else { return }
                 self.dismiss()
